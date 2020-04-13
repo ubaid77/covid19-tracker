@@ -49,8 +49,8 @@
     });
     }
 
-    function getData(){
-        fetch('https://api.covid19api.com/total/country/india/status/confirmed')
+    async function getData(){
+        await fetch('https://api.covid19api.com/total/country/india/status/confirmed')
         .then((response) => {
             return response.json();
         })
