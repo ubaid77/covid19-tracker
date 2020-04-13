@@ -1,0 +1,54 @@
+<%- include('partials/header') %>
+
+<div class="container-fluid text-center" id="global">
+    <h1>Global</h1>
+    <hr>
+    <div class="container d-flex justify-content-between">
+        <li>
+            <h3>Total Cases: <span><%= data["Global"]["TotalConfirmed"] %></span></h3>
+        </li>
+        <li>
+            <h3>Total Deaths: <span><%= data["Global"]["TotalDeaths"] %><span></h3>
+        </li>
+        <li>
+            <h3>New Cases: <span><%= data["Global"]["NewConfirmed"] %></span></h3>
+        </li>
+        <li>
+            <h3>Total Recovered: <span><%= data["Global"]["TotalRecovered"] %></span></h3>
+        </li>
+    </div>
+</div>
+
+<div class="container-fluid py-3" id="country">
+    <div class="row">
+        <div class="col-md-4 col-lg-4">
+            <h1 class="text-center">INDIA</h1>
+        </div>
+        <div class="col-md-8 col-lg-8">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <h3 style="color: #FF0D3F;">Confirmed: <span><%= data2[data2.length-1]["Confirmed"]%></span></h3>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <h3 style="color: #017BFF;">Active Cases: <span><%= data2[data2.length-1]["Active"]%></span></h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <h3 style="color: #B2B7BB;">Total Deaths: <span><%= data2[data2.length-1]["Deaths"]%></span></h3>
+                </div>
+                <div class="col-lg- col-sm-6">
+                    <h3 style="color: #2CA848;">Total Recovered: <span><%= data2[data2.length-1]["Recovered"]%></span></h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4" style="position: relative; height:40vh; width:80vw">
+    <canvas id="myChart"></canvas>
+</div>
+
+
+
+<%- include('partials/footer') %>

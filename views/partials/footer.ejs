@@ -1,0 +1,70 @@
+    <div class="container-fluid text-center footer">
+        <p>Mohammad Ubaid &copy;</p>
+    </div>    
+    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.js"></script>
+    
+<script>
+    var dates=[];
+    var cases=[];
+
+    
+    chartIt();
+
+    async function chartIt(){
+        await getData();
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                elements: {
+                    point:{
+                        radius: 0
+                    }
+                },
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            display: false
+                        }
+                    }]
+                }
+            },
+            data: {
+                labels: dates,
+                datasets: [{
+                    label: '# of Cases',
+                    data: cases,
+                    fill: false,
+                    showLines: false,
+                    backgroundColor: 'rgba(255, 224, 230, 1)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1
+        }]
+    },
+    
+    });
+    }
+
+    function getData(){
+        fetch('https://api.covid19api.com/total/country/india/status/confirmed')
+        .then((response) => {
+            return response.json();
+        })
+        .then((data) => {
+            data.forEach(function(date){
+            dates.push(date["Date"].substring(0,10))
+            cases.push(date["Cases"])
+            })
+        });
+    }
+    
+
+
+
+</script>
+    </body>
+</html>
