@@ -7,11 +7,6 @@ body{
     font-family: 'Poppins';
 }
 
-#global{
-    background: #33637A;
-    color: whitesmoke;
-    
-}
 h1{
     font-weight: 700;
 }
@@ -19,6 +14,7 @@ h1{
 li{
     list-style: none;
 }
+
 .col-md-6, .col-lg-6, .col-sm-6{
     padding: 0;
 }
@@ -30,6 +26,14 @@ li{
     background: #33637A;
     color: white;
 }
+
+#global{
+    background: #33637A;
+    color: whitesmoke;
+    
+}
+
+
 
 @media screen and (max-width: 600px) {
     h3 {
